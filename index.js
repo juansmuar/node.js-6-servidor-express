@@ -1,4 +1,4 @@
-const express = requiere ('express');
+const express = require ('express');
 const app = express();
 const now = new Date();
 const port = 8080;
@@ -52,6 +52,11 @@ const products = [
 
 app.get('/api/products', (req, res) => {
   res.send(products);
+});
+
+app.get('/info', (req, res) => {
+    res.send(`<h3>Our store has info for ${products.length} products</h3>
+    <h2>${now}</h2>`);
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
