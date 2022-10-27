@@ -48,7 +48,51 @@ const products = [
         "https://api.lorem.space/image/watch?w=640&h=480&r=4565"
       ]
     }
-  ];
+];
+
+const about = [
+    {
+        name: "Juan Sebastián",
+        age: "32",
+        city: "Medellín",
+        links: [
+            {
+                name: "LinkedIn",
+                url: "https://www.linkedin.com/in/juansmuar/",
+            },
+            {
+                name: "GitHub",
+                url: "https://github.com/juansmuar",
+            },
+        ],
+        skills: [
+            {
+                name: "javaScript",
+                level: "learning",
+            },
+            {
+                name: "HTML",
+                level: "learning",
+            },
+            {
+                name: "CSS",
+                level: "learning",
+            },
+            {
+                name: "React",
+                level: "learning",
+            },
+            {
+                name: "Node",
+                level: "learning",
+            },
+            {
+                name: "C++",
+                level: "Intermediate",
+            },
+        ]
+    }
+]
 
 app.get('/api/products', (req, res) => {
   res.send(products);
@@ -58,5 +102,9 @@ app.get('/info', (req, res) => {
     res.send(`<h3>Our store has info for ${products.length} products</h3>
     <h2>${now}</h2>`);
 });
+
+app.get('/about', (req, res) => {
+    res.send(about);
+  });
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
