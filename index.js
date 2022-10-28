@@ -165,6 +165,14 @@ app.get('/api/products/:id', (req, res) => {
   res.send(found);
 });
 
+app.delete('/api/products/:id', (req, res) => {
+  const itemIndex = products.findIndex(element => element.id === parseInt(req.params.id));
+  if (itemIndex >= 0) {
+    products.splice(itemIndex, 1);
+  }
+  res.send(products);
+});
+
 app.listen(port, function(err){
   if (err) console.log(err);
   console.log("Server listening on PORT", port);
